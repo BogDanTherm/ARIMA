@@ -1,0 +1,21 @@
+import numpy as np
+import pandas as pd
+from statsmodels.tsa.arima.model import ARIMA
+
+# Generate random time-series data
+np.random.seed(0)
+data = np.random.randn(100)
+
+# Fit an ARIMA model to the data
+model = ARIMA(data, order=(2,1,0))
+model_fit = model.fit()
+
+# Make predictions for the next 10 steps
+forecast, conf_int = model_fit.forecast(10)
+
+# Print the predictions and confidence interval
+print(forecast)
+print(conf_int)
+
+
+# use a library such as sqlalchemy to fetch the time-series data from the database.
